@@ -3,7 +3,7 @@ DELIMITER //
 
 CREATE PROCEDURE ComputeAverageScoreForUser(IN u_id int)
 BEGIN
-    UPDATE users SET overall_score = (
+    UPDATE users SET average_score = (
         SELECT SUM(score) / COUNT(project_id) 
         FROM corrections 
         WHERE user_id = u_id)
